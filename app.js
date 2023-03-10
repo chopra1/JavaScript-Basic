@@ -40,11 +40,11 @@ console.log('One' + ', ' + 'two' + ', ' + 'three!'); // Prints 'One, two, three!
 //properties
 console.log('Hello'.length); // Prints 5
 console.log('Teaching the world how to code'.length) //prints 30
-console.log("ABCDEFGHIJKLMNOPQRSTUVWXYZ".length) // prints 
+console.log("ABCDEFGHIJKLMNOPQRSTUVWXYZ".length) // prints 26
 
 //methods
 console.log('hello'.toUpperCase()); // Prints 'HELLO'
-console.log('hello'.toLowerCase()); // Prints 'HELLO'
+console.log('hello'.toLowerCase()); // Prints 'hello'
 console.log('Hey'.startsWith('H')); // Prints true
 console.log('Codecademy'.toUpperCase()); //prints CODECADEMY
 console.log('    Remove whitespace   '.trim()); //prints Remove whitespace
