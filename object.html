@@ -16,29 +16,83 @@
     <p id="demo1"></p>
     <p id="demo2"></p>
     <p id="demo3"></p>
-    <p id="fullName"></p> 
+    
+    <p id="loop"></p>
+    <p id="objvalues"></p>
+    <p id="json"></p>
 
     <script>
         let car = {name: "Fiat", model:'500', color:'White'};
+        //ading new property.
+        car.year = 2020;
+        //deleting property.
+        delete car.model;
 
+        txt = "";
+        for (let x in car) {
+            txt += car[x] + " ";
+        }
+
+        //Displaying Data
+        //1 display object properties using names.
         document.getElementById('demo').innerHTML = "Car's Name: " + car.name + "<br>" + "Car's Color: " + car.color;
         document.getElementById('demo1').innerHTML = car.name;
         document.getElementById('demo2').innerHTML = "Car's Name: " + car['name'] + "<br>" + "Car's Model: " + car['model'];
         document.getElementById('demo3').innerHTML = car.length; ///undefined
+        //2 display the object in the loop.
+        document.getElementById("loop").innerHTML = txt;
+        //3 displaying using Object.values()
+        document.getElementById('objvalues').innerHTML = Object.values(car);
+        //4 using JSON.stringify()
+        document.getElementById('json').innerHTML = JSON.stringify(car);
     </script>
 
     <p>In JavaScript, the this keyword refers to an object.</p>
+    <p id="fullName"></p> 
+    <p id="lang"></p>
 
     <script>
-        const person = {
+        let person = {
             firstName : 'John',
             lastName : 'Ahraham',
             age : 26,
             fullName : function() {
-                return this.firstName + " " + this.lastName;
-            }
+                return (this.firstName + " " + this.lastName).toUpperCase();
+            },
+            language : 'english',
+            get lang() {                 //getter
+                return this.language;
+            },
         }
-        document.getElementById('fullName').innerHTML = person.fullName();
+        // Set a property using set:
+        person.hobby = "gym";
+
+        document.getElementById('fullName').innerHTML = person.fullName(); //accessing method/function of object.
+        document.getElementById('lang').innerHTML = person.lang;
+        
     </script>
+
+    <p>(1.) Create a single object, with the keyword new.<br>
+    (2.) Create an object using Object.create().</p>
+
+    <!--Creating an object-->
+    <script>
+        //way 1
+        let persom = {name : "John Kennedy", age : 30,  eyecolor : "blue"};
+
+        //way 2
+        const persun = {};
+        persun.name = "John";
+        persun.age = 50;
+        persun.egeColor = "blue";
+
+        //way 2
+        const pern = new Object();
+        pern.name = "John";
+        pern.age = 50;
+        pern.eyeColor = "blue";
+    
+    </script> 
+
 </body>
 </html>
