@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPS</title>
+</head>
+
+<body>
+    <h1>Maps</h1>
+    <p>Create a map: <br></p>
+    <p>Passing an Array to new Map() or use Map.set()</p>
+
+    <p id="demo"></p>
+    <p id="size"></p>
+    <p id="has"></p>
+    <p id="foreach"></p>
+    <p id="forof"></p>
+
+    <script>
+        const fruit = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["mangoes", 200]
+        ]);
+        fruit.set("apples", 200);
+        fruit.delete("mangoes");
+
+        let text = "";
+        fruit.forEach(function(key, value) {
+            text += key + " = "  + value + "<br>";
+        })
+
+        let txt = "";
+        for (let x of fruit.entries()) {
+            txt += x + "<br>";
+        }
+
+        document.getElementById('demo').innerHTML = fruit.get("apples"); //prints : 200
+        document.getElementById('size').innerHTML = fruit.size;          //prints : 2
+        document.getElementById("has").innerHTML = fruit.has('mangoes'); //prints: false
+        document.getElementById('foreach').innerHTML = text;             //prints: 200 = apples   300 = bananas
+        document.getElementById('forof').innerHTML = txt;                //prints: apples,200     bananas,300
+    </script>
+
+    <script>
+        // Create a Map
+        const fruits = new Map();
+
+        // Set Map Values
+        fruits.set("apples", 500);
+        fruits.set("bananas", 300);
+        fruits.set("oranges", 200);
+    </script>
+</body>
+
+</html>
