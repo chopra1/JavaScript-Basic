@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Sets</title>
+    </head>
+    <body>
+        <h1>JavaScript Sets</h1>
+        <p>A javascript set is a collection of unique values. Each value can occur only once in a set.</p>
+        <p id="demo"></p>
+        <p id="demo2"></p>
+
+        <script>
+            // Create a Set
+            const letters = new Set(["a","b","c"]);
+            letters.add("d");
+            letters.add('e');
+
+            // List all Elements
+            let text = "";
+            letters.forEach(function(value) {
+                text += value + "<br>";
+            })
+            document.getElementById('demo').innerHTML = text;
+
+            const letter = new Set();
+            letter.add("f");
+            letter.add('g');
+            letter.add('h');
+            document.getElementById("demo2").innerHTML = letter.values();
+
+        </script>
+    </body>
+</html>
