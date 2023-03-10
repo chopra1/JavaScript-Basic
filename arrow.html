@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Arrow function</title>
+    </head>
+    <body>
+        <p id="arrow"></p>
+        <p id="hello"></p>
+        <script>
+            let myFunction = (a,b) => a * b;
+            document.getElementById("arrow").innerHTML = myFunction(4, 5);
+            
+
+            let hello = "";
+            hello = () => "Hello World";
+            document.getElementById("hello").innerHTML = hello();
+        </script>
+    </body>
+</html>
