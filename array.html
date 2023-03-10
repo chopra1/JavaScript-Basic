@@ -40,7 +40,7 @@ cars.pop(); //output: Jaguar deleted
 document.getElementById("demo").innerHTML = cars;  //output: Toyota,Volvo,BMW,Audi
 document.getElementById('demo1').innerHTML = cars.toString(); //output: Toyota,Volvo,BMW,Audi
 document.getElementById("demo*").innerHTML = cars.join(" * "); //output: Toyota * Volvo * BMW * Audi * Jaguar
-
+document.getElementById('json').innerHTML = JSON.stringify(cars); //output: ["Toyota","Volvo","BMW","Audi","Jaguar"]
 document.getElementById("demo2").innerHTML = cars[2]; //output: BMW
 document.getElementById('demo3').innerHTML = cars.length; //OUTPUT: 4
 
