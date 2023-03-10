@@ -1,7 +1,7 @@
 //Prints
 console.log(5); //Prints 5
-console.log(26);
-console.log(56);
+console.log(26); //prints 26
+console.log(56); //prints 56
 
 //comments
 /*
@@ -11,7 +11,7 @@ None of this is going to run!
 console.log(99);
 */
 
-//Datatypes
+//Outputs
 console.log('JavaScript');
 console.log(2011);
 console.log('Woohoo! I love to code! #codecademy');
@@ -40,13 +40,47 @@ console.log('One' + ', ' + 'two' + ', ' + 'three!'); // Prints 'One, two, three!
 //properties
 console.log('Hello'.length); // Prints 5
 console.log('Teaching the world how to code'.length) //prints 30
+console.log("ABCDEFGHIJKLMNOPQRSTUVWXYZ".length) // prints 
 
 //methods
 console.log('hello'.toUpperCase()); // Prints 'HELLO'
 console.log('hello'.toLowerCase()); // Prints 'HELLO'
 console.log('Hey'.startsWith('H')); // Prints true
 console.log('Codecademy'.toUpperCase()); //prints CODECADEMY
-console.log('    Remove whitespace   '.trim()); //prints Remove whitespace 
+console.log('    Remove whitespace   '.trim()); //prints Remove whitespace
+
+//The slice() method takes 2 parameters: start position, and end position (end not included).
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(7, 13);
+let pert = text.slice(7);
+let prt = text.slice(-12);
+console.log(part); //prints: Banana
+console.log(pert); //prints: Banana, Kiwi
+console.log(prt); ////prints: Banana, Kiwi
+
+//substr() is similar to slice().
+//The difference is that the second parameter specifies the length of the extracted part.
+let str = "Apple, Banana, Kiwi";
+console.log(str.substr(7,6)); //prints: Banana
+
+//replace()
+let writen = "Please visit Microsoft!";
+let newWriten = writen.replace("Microsoft", "W3Schools");
+console.log(newWriten); //prints: Please visit W3Schools!
+ 
+//Property Access
+let write = "HELLO WORLD";
+console.log(write[0]); //prints: H
+
+//indexOf()
+let string = "Please locate where 'locate' occurs!";
+console.log(string.indexOf("locate")); //prints: 7
+console.log(string.lastIndexOf("locate")); //prints: 21
+console.log(string.search("locate")); //prints: 7
+console.log(string.match("where")); //prints: 21
+console.log(string.includes("locate")); //prints: true
+console.log(string.startsWith("locate")); //prints: false
+console.log(string.endsWith("locate")); //prints: false
 
 //comparing strings
 const a = "a";
