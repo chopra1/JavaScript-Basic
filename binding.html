@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title> Binding</title>
+</head>
+
+<body>
+    <h3> Learn binding function with call() and apply().</h3>
+    <p id="call"></p>
+    <script>
+        const person1 = {
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+        const person2 = {
+            firstName : "John",
+            lastName : "Abraham"
+        };
+        let text = person1.fullName.call(person2); 
+        document.getElementById('call').innerHTML = text;
+    </script>
+
+    <p id="borrow"></p>
+
+    <script>
+        const person = {
+            fName: "John",
+            lName: "Doe",
+            fullN: function () {
+                return this.fName + " " + this.lName;
+            }
+        }
+
+        const member = {
+            fName: "Hege",
+            lName: "Nilsen",
+        }
+
+        let fullN = person.fullN.bind(member);
+
+        document.getElementById("borrow").innerHTML = fullN();
+    </script>
+
+</body>
+
+</html>
