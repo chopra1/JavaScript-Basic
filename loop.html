@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <title>JavaScript Loops</title>
+</head>
+
+<body>
+    <h1>JavaScript Loops</h1>
+    <p id="demo"></p>
+
+    <script>
+        let text = "";
+
+        for (i = 0; i < 5; i++) {
+            text += "The number is " + i + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    </script>
+
+    <!--Syntax
+    for (key in object) {
+  // code block to be executed
+}-->
+
+    <p>The For In Loop</p>
+    <p>The JavaScript for in statement loops through the properties of an Object:</p>
+    <p id="forin"></p>
+
+    <script>
+        const person = { name: "John Doe", age: 25 };
+        let txt = "";
+        for (let x in person) {
+            txt += person[x] + " ";
+        }
+        document.getElementById('forin').innerHTML = txt;
+    </script>
+
+    <!--Syntax
+for (variable in array) {
+  code
+}-->
+
+    <p>The for in statements can loop over an array values.</p>
+    <p id="forinarray"></p>
+
+    <script>
+        const numbers = [45, 4, 9, 16, 25];
+        let test = "";
+        for (let x in numbers) {
+            test += numbers[x] + "<br>";
+        }
+        document.getElementById('forinarray').innerHTML = test; 
+    </script>
+
+    <!--   Syntax
+for (variable of iterable) {
+  // code block to be executed
+}
+-->
+
+    <p>The JavaScript for of statement loops through the values of an iterable object.</p>
+    <p>It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:</p>
+    <p id="forof"></p>
+
+    <script>
+        const car = ["BMW", "Lamborgini", "Mercedes"];
+        let texx = "";
+        for (let x of car) {
+            texx += x + "<br>"
+        }
+        document.getElementById('forof').innerHTML = texx;
+    </script>
+
+    <p>JavaScript Language</p>
+    <p id="forof2"></p>
+
+    <script>
+        const language = 'JAVASCRIPT';
+        let texxt = "";
+        for (let x of language) {
+            texxt += x + "<br>";
+        }
+        document.getElementById('forof2').innerHTML = texxt;
+    </script>
+
+    <!--   Syntax
+while (condition) {
+  // code block to be executed
+}
+-->
+
+    <p>The While Loop</p>
+    <p>The while loop loops through a block of code as long as a specified condition is true.</p>
+    <p>It's like if statement without 1st and 3rd variable.</p>
+    <p id="while"></p>
+
+    <script>
+        const flower = ["lilly", "rose", "sunflower"]
+        let i = 0;
+        let quote = "";
+
+        while (flower[i]) {
+            quote += flower[i] + "<br>";
+            i++;
+        }
+        document.getElementById('while').innerHTML = quote;
+    </script>
+
+    <!--Syntax
+do {
+  // code block to be executed
+}
+while (condition);
+-->
+
+    <p>The Do While Loop</p>
+    <p>The do while loop is a variant of the while loop. This loop will execute the code block once, before checking
+        if the condition is true, then it will repeat the loop as long as the condition is true.</p>
+    <p id="dowhile"></p>
+
+    <script>
+        let given = "";
+        let j = 0;
+
+        do {
+            given += "The number is " + j + "<br>";
+            j++;
+        }
+        while (j < 10);
+        document.getElementById('dowhile').innerHTML = given;
+    </script>
+
+    <p>A loop with a break Statement</p>
+    <p id="break"></p>
+
+    <script>
+        let write = ""
+        let k = 3;
+        for (k = 0; k < 10; k++) {
+            if (k === 3) { break; };
+            write += "The number is " + k + "<br>";
+        }
+        document.getElementById("break").innerHTML = write;
+
+    </script>
+
+    <p>A loop with a continue Statement</p>
+    <p id="continue"></p>
+
+    <script>
+        let read = "";
+        let l = 3;
+        for (l = 0; l < 10; l++) {
+            if (l === 3) { continue; };
+            read += "The number is " + l + "<br>";
+        }
+        document.getElementById("continue").innerHTML = read;
+
+    </script>
+
+    <p>Iterating Sets Values</p>
+    <p id="set"></p>
+
+    <script>
+        //Create a set
+        const letters = new Set(["a", "b", "c"]);
+
+        //list all elements
+        let textList = "";
+        for (let x of letters.values()) {
+            textList += x + "<br>";
+        }
+        document.getElementById('set').innerHTML = textList;
+
+    </script>
+</body>
+
+</html>
