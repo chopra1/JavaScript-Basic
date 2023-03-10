@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+<!--In Objects, JavaScript use name index.-->
+    <h2>Study about Objects</h2>
+    <p>objects</p>
+    <p>In real life, a car is an object.</p>
+    <p>A car has properties like weight and color, and methods like start and stop</p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="fullName"></p> 
+
+    <script>
+        let car = {name: "Fiat", model:'500', color:'White'};
+
+        document.getElementById('demo').innerHTML = "Car's Name: " + car.name + "<br>" + "Car's Color: " + car.color;
+        document.getElementById('demo1').innerHTML = car.name;
+        document.getElementById('demo2').innerHTML = "Car's Name: " + car['name'] + "<br>" + "Car's Model: " + car['model'];
+        document.getElementById('demo3').innerHTML = car.length; ///undefined
+    </script>
+
+    <p>In JavaScript, the this keyword refers to an object.</p>
+
+    <script>
+        const person = {
+            firstName : 'John',
+            lastName : 'Ahraham',
+            age : 26,
+            fullName : function() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        document.getElementById('fullName').innerHTML = person.fullName();
+    </script>
+</body>
+</html>
