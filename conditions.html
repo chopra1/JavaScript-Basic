@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements</title>
+</head>
+<body>
+    <h1> Conditional Statements</h1>
+    <p>Use <b>if</b> to specify a block of code to be executed, if a specified condition is true</p>
+    <p>Use <b>else</b> to specify a block of code to be executed, if the same condition is false</p>
+    <p>Use <b>else if</b> to specify a new condition to test, if the first condition is false</p>
+    <p>Use <b>switch</b> to specify many alternative blocks of code to be executed</p><br>
+    <p>Syntax for (if else): <br><br>
+        if (condition) { <br>
+            block of code to be executed if the condition is true <br>
+        } else if (condition2) { <br>
+           block of code to be executed if the condition1 is false and condition2 is true <br>
+        } else { <br>
+            block of code to be executed if the condition1 is false and condition2 is false <br>
+        } <br>
+    </p>
+    <p id='demo'></p>
+    <p> Syntax for (Switch Statement):<br><br>
+        switch (expression) { <br>
+            case x: <br>
+            //code <br>
+            break; <br>
+
+            case y: <br>
+            //code <br>
+            break; <br>
+
+            default: <br>
+            //code <br>
+        } <br>
+    </p>
+    <p id="demo1"></p>
+
+<script>
+//if else
+ const time = new Date().getHours();
+ let greeting;
+ if (time < 10) {
+    greeting = "good morning";
+ } else if (time < 20) {
+    greeting = "good day";
+ } else {
+    greeting = "good evening";
+}
+document.getElementById('demo').innerHTML = greeting.toUpperCase();
+
+//switch
+let day;
+switch (new Date().getDay()) {
+    case 0:
+        day = "Sunday";
+        break;
+    case 1:
+        day = "Monday";
+        break;
+    case 2:
+        day = "Tuesday";
+        break;
+    case 3:
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5:
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
+        break;
+    default:
+        day = "Looking Forward for the next month";
+}
+document.getElementById('demo1').innerHTML = "Today is "  + day;
+</script>
+</body>
+</html>
