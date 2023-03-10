@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+<!--In JavaScript, arrays use numbered indexes.-->      
+    <h2>Array</h2>
+    <p>Learn how to handle array.</p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo*"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id='demo4'></p>
+    <p id='demo5'></p>
+    <p id='list'></p>
+    <p id='ordered list'></p>
+    <p id="another array"></p>
+    <p id="check"></p>
+    <p id="check1"></p> 
+
+<script>
+//You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// You can change an element:
+cars[0] = "Toyota";
+
+// You can add an element:
+cars.push("Audi");
+cars[cars.length] = 'Jaguar';
+length = cars.push('Maruti');
+// you can delete an element
+cars.pop(); //output: Jaguar deleted
+
+document.getElementById("demo").innerHTML = cars;  //output: Toyota,Volvo,BMW,Audi
+document.getElementById('demo1').innerHTML = cars.toString(); //output: Toyota,Volvo,BMW,Audi
+document.getElementById("demo*").innerHTML = cars.join(" * "); //output: Toyota * Volvo * BMW * Audi * Jaguar
+
+document.getElementById("demo2").innerHTML = cars[2]; //output: BMW
+document.getElementById('demo3').innerHTML = cars.length; //OUTPUT: 4
+
+//const array = new Array[] for defining another array.
+
+//Accessing the Last Array Element
+document.getElementById('demo4').innerHTML = cars[cars.length - 1]; //output: Audi 
+document.getElementById("demo5").innerHTML = cars[3]; //output: Audi
+
+//looping array elements
+let text = '<ul>';
+for (let i = 0; i < cars.length; i++) {
+    text += '<li>' + cars[i] + '</li>';
+};
+text += '</ul>';
+
+document.getElementById('list').innerHTML = text;
+
+//Array.forEach() function
+let txt = '<ol>';
+cars.forEach(myFunction);
+txt += '</ol>';
+
+function myFunction(value) {
+    txt += '<li>' + value + '</li>';
+}
+document.getElementById('ordered list').innerHTML = txt;
+
+//Constructiong new Array
+const person = []; /* OR USE -
+const person = new Array(); */
+person[0] = "Jenil";
+person[1] = "Champ";
+person[2] = "Harry";
+person[3] = "Tushar";
+
+document.getElementById('another array').innerHTML = person[1];  //output: Champ
+
+//How to Recognize an Array
+document.getElementById('check').innerHTML = Array.isArray(person); //output: true
+document.getElementById('check1').innerHTML = cars instanceof Array; //output: true
+
+</script>
+</body>
+</html>
