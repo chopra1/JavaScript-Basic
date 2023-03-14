@@ -30,6 +30,36 @@ code to be executed
     document.getElementById('convert').innerHTML = toCelsius(50); //output: 10
 //second way
     document.getElementById("convert2").innerHTML = "The temperature is " + toCelsius(77) + " Celsius"; //output: 25
+    
+    unction monitorCount(rows, columns) {
+            return rows * columns;
+        };
+        function costOfMonitors(rows, columns) {
+            return monitorCount(rows, columns) * 200; //helper function
+        };
+        const totalCost = costOfMonitors(5, 4);
+        console.log(totalCost);
+
+
+        const plantNeedsWater = function (day) {
+            if (day === 'Wednesday') {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        plantNeedsWater("Tuesday");
+        console.log(plantNeedsWater("Tuesday"));
+
+        //concise body arrow function
+        //normal function ->
+        //const squareNum = (num) => {
+        //return num * num;
+        //};
+        //concise body arrow function
+        //const squareNum = num => num * num;
+        //implicit return
+        //const plantNeedsWater = day => day === 'Wednesday' ? true : false;
 </script>
 </body>
 </html>
