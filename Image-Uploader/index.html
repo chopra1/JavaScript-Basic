@@ -5,25 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Image Uploader</title>
 </head>
 
 <body>
-    <input type='file' accept="image/png, image.jpg" id="input"><br><br>
-    <img src="unnamed.png" width="300px" height="250px">
+    <!--<input type='file' accept="image/png, image.jpg" id="input"><br><br>-->
+    <!-- <input type='file' id="input" onchange=" previewImage(event)"><br><br> -->
+    <input type='file' id="input"><br><br>
+    <img src="unnamed.png" width="300px" height="250px" />
     <br><br>
     <button onclick="del()">Delete</button>
 
     <script>
+        //for preview image and url
         window.addEventListener('load', function () {
             document.querySelector("input[type='file']").addEventListener('change', function () {
                 if (this.files && this.files[0]) {
                     var img = document.querySelector('img');
                     img.src = URL.createObjectURL(this.files[0]);
                 }
-            });
-        });
+                return;
+            })
+        })
 
+        //for file size
         const input = document.getElementById('input')
         input.addEventListener('change', (event) => {
             const target = event.target;
@@ -31,17 +36,35 @@
                 /*Maximum allowed size in bytes 1MB Example.  Change first operand(multiplier) for your needs*/
                 const maxAllowedSize = 1 * 1024 * 1024;  //means 1 MB
                 if (target.files[0].size > maxAllowedSize) {
-                    // Here you can ask your users to load correct file
                     target.value = '';
                     alert("File size should be not more than 1 MB");
                 }
             }
+            var file = target.files[0];
+            if (!file.type.match('image/jpeg') && !file.type.match('image/png')) {
+                alert('Please select a valid JPEG or PNG image file.');
+                input.value = '';
+                return;
+            }
         })
+
+        //for image delete
         function del() {
             var img = document.querySelector('img');
             img.src = "unnamed.png";
         }
-    </script>
-</body>
 
+        //check if a file is valid image.
+        // function previewImage(event) {
+        //     var input = event.target;
+        //     var file = input.files[0];
+        //     if (!file.type.match('image/jpeg') && !file.type.match('image/png')) {
+        //         alert('Please select a valid JPEG or PNG image file.');
+        //         input.value = '';
+        //         return;
+        //     }
+        // }
+
+</script>
+</body>
 </html>
