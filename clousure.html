@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>JavaScript Closures</h2>
+        <p>Counting with a local variable.</p>
+        <button type="button" onclick="myFunction()">Count!</button>
+        <p id="demo">0</p>
+        <p>
+            The variable add is assigned to the return value of a self-invoking
+            function<br />. The self-invoking function only runs once. It sets
+            the counter to zero (0), and returns a function expression.<br />
+            This way add becomes a function. The "wonderful" part is that it can
+            access the counter in the parent scope.<br />
+            This is called a JavaScript closure. It makes it possible for a
+            function to have "private" variables.<br />
+            The counter is protected by the scope of the anonymous function, and
+            can only be changed using the add function.<br />
+            A closure is a function having access to the parent scope, even
+            after the parent function has closed.
+        </p>
+
+        <script>
+            const add = (function () {
+                //add is a variable which has a function as a value.
+                let counter = 0 //now function add has a local variable which is counter = 0
+                return function () {
+                    counter += 1
+                    return counter
+                } //add function is returned with a variable counter and nested funtion which has an access to counter vale and parent function add.
+            })() //add function called here
+
+            function myFunction() {
+                //new function is created
+                document.getElementById('demo').innerHTML = add() //add function is called in this myFunction() and its working as even after the parent scope is closed, myFunction has an access to psrent scope..
+            }
+        </script>
+
+        <script>
+            function init() {
+                const name = 'Mozilla' // name is a local variable created by init
+                function displayName() {
+                    // displayName() is the inner function, that forms the closure
+                    console.log(name) // use variable declared in the parent function
+                }
+                displayName()
+            }
+            const myFunc = init()
+            myFunc()
+        </script>
+
+        <script>
+            const makeCounter = function () {
+                let privateCounter = 0
+                function changeBy(val) {
+                    privateCounter += val
+                }
+                return {
+                    increment() {
+                        changeBy(1)
+                    },
+
+                    decrement() {
+                        changeBy(-1)
+                    },
+
+                    value() {
+                        return privateCounter
+                    }
+                }
+            }
+
+            const counter1 = makeCounter()
+            const counter2 = makeCounter()
+
+            console.log(counter1.value()) // 0.
+
+            counter1.increment()
+            counter1.increment()
+            console.log(counter1.value()) // 2.
+
+            counter1.decrement()
+            console.log(counter1.value()) // 1.
+            console.log(counter2.value()) // 0.
+        </script>
+
+        <script>
+            //Closure Scpe Chain
+            // global scope
+            const e = 10
+            function sum(a) {
+                return function sum2(b) {
+                    return function sum3(c) {
+                        // outer functions scope
+                        return function sum4(d) {
+                            // local scope
+                            return a + b + c + d + e
+                        }
+                    }
+                }
+            }
+
+            const sum2 = sum(1)
+            const sum3 = sum2(2)
+            const sum4 = sum3(3)
+            const result = sum4(4)
+            console.log(result) // 20
+        </script>
+    </body>
+</html>
