@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Practise</title>
+</head>
+<body>
+    <h2>Local Storage</h2>
+    <button id="add_first">Add 1 item</button><br><br>
+    <button id="add_second">Add another item</button><br><br>
+    <button id="get/read">Get / Read an item</button><br><br>
+    <button id="remove_1">Remove 1 item</button><br><br>
+    <button id="clear/delete_all">Remove all / Clear item</button><br><br>
+
+    <div id="currentStatus"></div>
+
+    <script>
+        document.getElementById("add_first").addEventListener('click', function(){
+            localStorage.setItem('name', 'George Brown');  //done
+            update();
+        })
+
+        document.getElementById("add_second").addEventListener('click', function(){
+            localStorage.setItem('users', JSON.stringify({name: 'Garry Singh', age: 55, city: 'Jaipur'}));  //done
+            update();
+        })
+
+        document.getElementById("get/read").addEventListener('click', function(){
+            const user = JSON.parse(localStorage.getItem('users'));
+            document.getElementById('currentStatus').textContent = user.name;
+            console.log(user);
+            update()
+        })
+
+        document.getElementById("remove_1").addEventListener('click', function(){
+            localStorage.removeItem('name'); //done
+            update();
+        })
+
+        document.getElementById("clear/delete_all").addEventListener('click', function(){
+            localStorage.clear(); //done
+            update();
+        })
+
+        function update(){
+            var values = [] , keys = Object.keys(localStorage) , i = keys.length;
+            while(i--){
+                values.push(localStorage.getItem(keys[i]));
+            }
+            document.getElementById('currentStatus').textContent = values;
+        }
+
+    </script>
+</body>
+</html>
