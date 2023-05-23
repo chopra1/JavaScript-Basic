@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Save data in localStorage using JavaScript</title>
+  </head>
+  <body>
+    <!--Create a form-->
+    <form id="note-form">
+      <input id="note-input" type="text" placeholder="+ Add Note" required />
+      <button id="note-submit">Save</button>
+    </form>
+    <!--initialize an unordered list with ID-->
+    <ul id="notes"></ul>
+    <!--Add button will add a data in ul list-->
+    <script>
+      //step-1 Define the required HTML id's 
+      const noteForm = document.getElementById("note-form"); //whole form
+      const noteInput = document.getElementById("note-input"); //input we add in note
+      const noteSubmit = document.getElementById("note-submit"); //Add button
+      const notes = document.getElementById("notes"); //display submitted data in <ul> 
+      
+      //Ternary op - Read the item which is submitted through (localStorage.getItem(). if data available then convert JSON obj data into JS using JSON.parse() or array will remain empty. 
+      let notesStorage = localStorage.getItem("notes")
+        ? JSON.parse(localStorage.getItem("notes"))
+        : []; // .length / .isEmpty()
+
+      noteForm.addEventListener("submit", (e) => {
+        e.preventDefault(); //preventDefault will look that the form field should not empty
+        notesStorage.push(noteInput.value); //push noteInput value in noteStorage
+        localStorage.setItem("notes", JSON.stringify(notesStorage)); //Set the data in local storage
+        listBuilder(noteInput.value); //call a function listBuilder with attributes (noteInput.value)  (function hoisting)
+        noteInput.value = "";
+      });
+      
+      //function of listBuilder
+      const listBuilder = (text) => { //parameter is text (user input)
+        const note = document.createElement("li");
+        note.innerHTML = text + ' <button onclick="deleteNote(this)">x</button>'; //display the input text in HTML list format wiyj a delete btn
+        notes.appendChild(note); //notes(<ul>) will add a child component note(<li>)
+      };
+
+      const getNotes = JSON.parse(localStorage.getItem("notes")); //for reading the data in local storage
+      getNotes.forEach((note) => {  //forEach method is used to display each input of user
+        listBuilder(note); //call listBuilder func to read the data in local storage 
+      });
+      
+      //function deleteNote with argument button element
+      const deleteNote = (btn) => {
+        let element = btn.parentNode; //btn is element and parameter , The read-only parentNode property of the Node interface returns the parent of the specified node in the DOM tree.
+        const index = [...element.parentElement.children].indexOf(element);  //The read-only parentElement property of Node interface returns the DOM node's parent Element, or null if the node either has no parent, or its parent isn't a DOM Element.
+        //child = parent.children.indexOf(child)   
+        notesStorage.splice(index, 1);
+        localStorage.setItem("notes", JSON.stringify(notesStorage));
+        element.remove();  //The Element.remove() method removes the element from the DOM.
+      };
+
+      /*var parent = child.parentNode;
+      The equivalent of parent.children.indexOf(child)
+      var index = Array.prototype.indexOf.call(parent.children, child);*/
+      </script>
+  </body>
+</html>
